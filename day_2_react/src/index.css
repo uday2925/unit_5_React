@@ -1,0 +1,10 @@
+#root{
+    color:tomato;
+}
+
+.redtxt{
+    color:red;
+}
+.borders{
+    border:2 px solid blue;
+}
