@@ -1,17 +1,38 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import Ofnavbar from './components/category';
+import {useState} from 'react'
+
 
 function App() {
-  //ser+name to chanhe
-  const [counter,setCounter]=useState(0); 
 
+  const datas=[{image:"https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100",title:"Top Offers"},
+                {image:"https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100",title:"Fashion"},
+                {image:"https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100",title:"Top Offers"},
+                {image:"https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100",title:"Fashion"}
+              ];
+              
+const [counter,setCounter]=useState(0)
+
+const handlechange=(value)=>{
+  setCounter(counter+value);  
+}
   return (   
     <div className="App">
-      <h3>Counter:{counter}</h3>
+      {datas.map((e)=>{        
+       return  <Ofnavbar imagea={e.image} titlen={e.title}/>
+      })}
+
+      <b>counter:{counter}</b>;
+      <hr/>
       <button onClick={()=>{
-        setCounter(15);
-      }}></button>
+        handlechange(1);
+      }}>ADD 1</button>
+      <button onClick={()=>{
+        handlechange(-1);
+      }}>SUB 1</button>
+      
+      
     </div>
   );
 }
